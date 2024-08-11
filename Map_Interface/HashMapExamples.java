@@ -3,6 +3,8 @@ package Map_Interface;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.TreeMap;
+
 public class HashMapExamples {
     public static void main(String[] args) {
 //        List list = Arrays.asList(1,34,24,3,4,12,03);
@@ -44,13 +46,42 @@ public class HashMapExamples {
                 new Student(19,"prateek kuhad"));
 
 //        System.out.println(list);
-        HashMap<Integer,String> studentHashMap=new HashMap<>();
+        HashMap<Integer,Student> studentHashMap=new HashMap<>();
         for (int i = 0; i < list.size(); i++) {
             studentHashMap.put(list.get(i).getRollNo(),
-                    list.get(i).getName());
+                    list.get(i));
         }
-        System.out.println(studentHashMap);
-        studentHashMap.putIfAbsent(100,"varnita makrariya");
-        System.out.println(studentHashMap);
+//        System.out.println(studentHashMap);
+        studentHashMap.putIfAbsent(100,new Student(100,"varnita makrariya"));
+//        System.out.println(studentHashMap);
+//        System.out.println(studentHashMap.get(100));
+//        System.out.println(studentHashMap);
+//        System.out.println(studentHashMap.getClass());
+
+        TreeMap<Integer,Student> studentTreeMap=new TreeMap<>();
+        for (int i = 0; i < list.size(); i++){
+            studentTreeMap.put(list.get(i).getRollNo(),
+                    list.get(i));
+        }
+//        System.out.println(studentTreeMap.pollFirstEntry());
+//        System.out.println(studentTreeMap);
+
+//        System.out.println(studentTreeMap);
+//        System.out.println(studentTreeMap.pollLastEntry());
+//        System.out.println(studentTreeMap);
+
+//        System.out.println(studentTreeMap.keySet());
+//        System.out.println(studentTreeMap.entrySet());
+//        System.out.println("Size of studentTreeMap = "+studentTreeMap.size());
+//        System.out.println(studentTreeMap.descendingKeySet());
+
+//        DESCENDING ORDERING OF TreeMap
+        for (Integer key:studentTreeMap.descendingKeySet()) {
+            System.out.println(studentTreeMap.get(key));
+        }
+        System.out.println(studentTreeMap.containsKey(45));
+        studentTreeMap.putIfAbsent(26,new Student(26,"ravina yadav"));
+        System.out.println(studentTreeMap);
+//        System.out.println(studentTreeMap.getClass());
     }
 }

@@ -1,6 +1,6 @@
 package Map_Interface;
 
-public class Student<I extends Number, S> implements Comparable<Student<Number, S>>{
+public class Student implements Comparable<Student>{
     private int rollNo;
     private String name;
 
@@ -34,13 +34,12 @@ public class Student<I extends Number, S> implements Comparable<Student<Number, 
     }
 
     @Override
-    public int compareTo(Student<Number, S> student) {
-        if (student.getRollNo()>rollNo){
+    public int compareTo(Student student) {
+        if (rollNo>student.getRollNo()) {
             return 1;
-        } else if (student.getRollNo()<rollNo) {
+        } else if (rollNo<student.getRollNo()) {
             return -1;
-        }
-        else {
+        } else {
             return 0;
         }
 //        return rollNo < student.getRollNo() ? 1 : -1;
