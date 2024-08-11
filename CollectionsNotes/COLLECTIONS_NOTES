@@ -1,0 +1,222 @@
+=====================
+COLLECTION FRAMEWORKS
+=====================
+Iterable --> Collection -->
+                          1> List_Interface
+                                       >> ArrayList-->List
+                                       >> LinkedList-->List
+                                       >> Stack-->List
+                                       >> Vector-->List
+                          2> Queue_Interface [ deQueue ]
+                                       >> Array_Deque --> DeQueue -->Queue
+                                       >> LinkedList --> DeQueue -->Queue
+                          3> Set_Interface
+                                        >> HashSet
+                                        >> LinkedHashSet
+                                3.1> SortedSet__Interface
+                                                >> TreeSet
+-------------------------------------------------------------------------------------------------------
+=============================================
+ARRAYLIST => NOT SYNCHRONIZED,NOT THREAD SAFE
+=============================================
+
+Internal Hierarchy
+-----------------------------------------
+ARRAYLIST CLASS implements LIST INTERFACE
+ArrayList --> implements --> List
+-----------------------------------------
+
+/*ArrayList KEY FEATURES
+        --------> increase capacity by 50% of previous size
+        --------> not thread safe
+        --------> used array internally
+        --------> not synchronized
+        --------> dynamic in nature
+        --------> provides only [iterator] which is not fast
+        --------> faster to retrieval of data by index value
+        * */
+--------------------------------------------------------------------------------------------
+
+===========
+LINKED_LIST
+===========
+//       List Interface => implementation classes=> [List_Interface.LinkedList.ArrayList,List_Interface.LinkedList,List_Interface.LinkedList.Stack,Vector]
+//       -----------------------------------------------------------------------------
+//       # maintains order
+//       # can store Any-Type of values ACCEPTS NULL
+//       # slower for retrieving data as node started to traversed from start
+//       # used arrays internally
+
+
+--------------------------------------------------------------------------------------------
+=====
+STACK
+=====
+
+IN-SHORT internal hierarchy how stack implements list interface
+---------------------------------------------------------------
+stack->vector->abstractList->abstractCollection=>List interface
+--------------------------------------------------------------
+stack extends --> vector |
+                  vector extends --> abstractList |
+                  abstractList extends --> abstractCollection |
+                  abstractCollection implements ==> List Interface
+/*        push(),pop(),peek(),empty(),search()
+    Hierarchy HOW STACK IMPLEMENTS
+    ------------------------------------------------------------------------
+    stack --> extends--> vector -->
+                         extends--> abstractList
+                                        -->extends-->AbstractCollection
+                                            --> implements--> List interface
+    -------------------------------------------------------------------------
+    note** //        -------> used array internally
+    ------
+    stack does not implement list interface directly but follow above workflow
+  */
+//        adding few car names into stack
+//---------------------------------------
+//---------------------------------------
+//        **remember
+//        -------> List interface does not support some methods
+//                 which is inside stack so try to create object directly by
+//                 stack at both side.
+
+//        List Interface--> stack implementation class
+//        List<String> stack=new List_Interface.LinkedList.Stack<>();
+//        list reference ----> stack constructor calling = [ creates object of stack by taking
+//                                                         [  reference of list interface
+//        List_Interface.LinkedList.Stack<String> stack=new List_Interface.LinkedList.Stack<>();
+
+--------------------------------------------------------------------------------------------
+==================================
+VECTOR => SYNCHRONIZED,THREAD SAFE
+==================================
+
+/*KEY FEATURES OF VECTORS
+-------> not maintains insertion order
+-------> thread safe
+-------> used array internally
+-------> synchronized,locked
+-------> double 100% capacity
+-------> ConcurrentModificationException Error => vector provides --> iterator,enumerators
+* */
+
+------------------------------------------------------------------------------------------
+=============
+SET INTERFACE
+=============
+(SET) --> implementation CLASSES ==> [hashSet,linkedHashSet]
+                  ------------------------------------------------
+                  hashSet = hashing(hashCode)+Set
+                  linkedHashSet = linkedList+hashing(hashCode)+Set
+                  ------------------------------------------------
+(SORTED SET) -->implementation class --> [treeSet]
+============================================================
+
+=======
+hashSET
+=======
+//      hashSet-->implements-->Set Interface
+//      not maintains order
+//      not synchronized
+//      not thread safe
+---------------------------------------------------------------------
+
+=============
+linkedHashSet
+=============
+//      maintains order as LinkedList follows List properties
+//      hashMap table is maintained,data store using hashCode
+//      follow set properties not allows duplicates
+
+========
+TREE_SET
+========
+//      provides sorted data
+//      used BINARY SEARCH TREE internally
+//      duplicates not allows as follows Set properties
+//      NULL not allowed
+** Important Problem with TreeSet==>
+        [classCastException]
+    ==> if Class object is passed into TreeSet then,
+                we got Comparable Interface class cast exception
+
+    SOLUTION==> implement Comparable Interface first,
+                and write CompareTo() by which
+                TreeSet can sort data.
+
+              class Person implements Comparable<Person>{
+                @Override
+                compareTo(){
+                    //sort data based on condition
+                }
+              }
+    TreeSet = class Object implements comparable Interface
+
+-----------------------------------------------------------------------------------------
+===============
+QUEUE INTERFACE
+===============
+QUEUE can be implemented By:
+                > LinkedList
+                > PriorityQueue
+                > DeQueue
+                > ArrayDeque
+
+--------------------------
+QUEUE BY USING LINKED_LIST
+--------------------------
+//    offer(),poll(),peek()
+//    add = offer [ adding new element from end of the queue list]
+//    remove = poll [remove 1st element from queue list]
+//    LinkedList ==> [add(),remove()]
+/*
+                 WHY WE USE OFFER() WITH QUEUE NOT ADD()
+                 ---------------------------------------
+                   NOT RECOMMENDED THESE METHODS
+                   [add(),remove()],
+                   BECAUSE AT THE TIME OF ADDING
+                   ELEMENTS INTO QUEUE, IF THE ELEMENT
+                   NOT ADDED SUCCESSFULLY INTO QUEUE ,
+                   THEN QUEUE CAN GENERATE EXCEPTION
+                   BUT WITH OFFER() METHOD
+                   OFFER RETURNS TRUE IF ELEMENT ADDED SUCCESSFULLY
+                   OTHERWISE RETURNS FALSE;
+*/
+
+    /*
+                     WHY WE USE POLL() WITH QUEUE NOT REMOVE()
+                     ---------------------------------------
+                       NOT RECOMMENDED THESE METHODS
+                       [add(),remove()],
+                       BECAUSE AT THE TIME OF DELETING
+                       ELEMENTS FROM QUEUE, IF THE ELEMENT
+                       NOT DELETED SUCCESSFULLY FROM QUEUE ,
+                       THEN QUEUE CAN GENERATE EXCEPTION
+                       BUT WITH POLL() METHOD
+                       POLL RETURNS NULL VALUE IF ELEMENT NOT DELETED
+                       SUCCESSFULLY OTHERWISE RETURNS TRUE;
+    */
+--------------------------------------------------------------------------
+
+--------------------------------------
+DEQUEUE INTERFACE BY USING ARRAY_QUEUE
+--------------------------------------
+//        offerFirst = addFirst = push
+//        removeFirst = poll = remove = pollFirst
+//        removeLast = pollLast
+//---------------------------------------------------------
+
+
+
+-----------------------------
+QUEUE BY USING PRIORITY_QUEUE
+-----------------------------
+           Queue Interface Methods==> peek(),offer(),poll()
+           DeQue Interface ==> ArrayDeQue class
+                            > peekFirst(),
+                            > peekLast(),
+                            > offer(),
+                            > poll(),
+                            > peek()
+           ArrayDeQue = [doubleEnded_Queue]
