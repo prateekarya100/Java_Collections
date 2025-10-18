@@ -1,6 +1,9 @@
 =====================
 COLLECTION FRAMEWORKS
 =====================
+
+Iterable is a interface for entire collection framework
+
 Iterable --> Collection -->
                           1> List_Interface
                                        >> ArrayList-->List
@@ -26,6 +29,7 @@ ARRAYLIST CLASS implements LIST INTERFACE
 ArrayList --> implements --> List
 -----------------------------------------
 
+
 /*ArrayList KEY FEATURES
         --------> increase capacity by 50% of previous size
         --------> not thread safe
@@ -40,7 +44,7 @@ ArrayList --> implements --> List
 ===========
 LINKED_LIST
 ===========
-//       List Interface => implementation classes=> [List_Interface.LinkedList.ArrayList,List_Interface.LinkedList,List_Interface.LinkedList.Stack,Vector]
+//       List Interface => implementation classes=> [ ArrayList, Stack,Vector]
 //       -----------------------------------------------------------------------------
 //       # maintains order
 //       # can store Any-Type of values ACCEPTS NULL
@@ -220,3 +224,24 @@ QUEUE BY USING PRIORITY_QUEUE
                             > poll(),
                             > peek()
            ArrayDeQue = [doubleEnded_Queue]
+
+---------------------------------------------------------------------------------------
+=> before java jdk 1.2 java relies on these classes [ vector,stack,hashtable,array]
+=> all classes have their own way of doing manipulation or managing objects.
+=> no such common way of handling all classes and interfaces at one place.
+=> due to all of these issues we faces::
+       1> Inconsistency:: each class had a different way of managing collections,
+                          leading to confusion and a steep learning curve.
+
+       2> Lack of inter-operability:: all classes were not designed to work together.
+       3> No common interface :: all classes has different functionalities,need to be
+                                 separately handled by respective interface and classes.
+----------------------------------------------------------------------------------------
+  TO SOLVE THESE PROBLEMS, collection frameworks introduced. [since java v1.2]
+
+
+  Iterable --> Collections -->
+
+
+
+
